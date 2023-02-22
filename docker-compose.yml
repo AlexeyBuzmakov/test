@@ -1,13 +1,6 @@
 version: "3.9"
 services:
 
-  test:
-    build: ./test
-    container_name: eurekaserver
-    restart: always
-    ports:
-      - "8080:8080"
-
   test_db:
     container_name: test_db
     image: postgres
