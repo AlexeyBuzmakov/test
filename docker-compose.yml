@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+
+  test:
+    build: ./test
+    container_name: eurekaserver
+    restart: always
+    ports:
+      - "8080:8080"
+
+  test_db:
+    container_name: test_db
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=test_db
+      - POSTGRES_USER=linux
+      - POSTGRES_PASSWORD=linux
+    volumes:
+      - db:/var/lib/postgresql/owner_db
+    ports:
+      - "5430:5430"
+    command: -p 5430
+
+volumes:
+  db:
